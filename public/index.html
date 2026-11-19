@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>小猫钓鱼 · 好友扑克游戏</title><link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<main class="app">
+  <header class="topbar"><div><div class="eyebrow">2—4人在线扑克小游戏</div><h1>小猫钓鱼</h1></div><div id="connection" class="connection">连接中…</div></header>
+  <section id="lobby" class="panel lobby">
+    <h2>开始游戏</h2>
+    <label>你的昵称<input id="playerName" maxlength="12" placeholder="例如：小鱼" value="玩家"></label>
+    <label class="count-label">创建房间人数<select id="playerCount"><option value="2">2人</option><option value="3">3人</option><option value="4" selected>4人</option></select></label>
+    <div class="lobby-actions"><button id="createBtn" class="primary">创建房间</button><div class="join-box"><input id="roomInput" maxlength="6" placeholder="输入6位房间号"><button id="joinBtn">加入房间</button></div></div>
+    <p class="hint">房主选择人数并创建房间，把房间号发给朋友。加入者不需要选择人数。</p><p id="lobbyError" class="error"></p>
+  </section>
+  <section id="game" class="game hidden">
+    <div class="roombar panel"><div><span class="muted">房间号</span><strong id="roomCode">------</strong><span id="roomSize" class="muted"></span></div><button id="copyBtn" class="small">复制房间号</button></div>
+    <div id="scoreboard" class="scoreboard"></div>
+    <section class="table-area"><div class="table-heading"><span>桌面牌列</span><span id="tableCount">0 张</span></div><div id="tableCards" class="table-cards"><div class="empty-table">等待开始，桌面上的牌会显示在这里</div></div></section>
+    <section class="action-area panel"><div class="turn-line"><span id="turnText">等待其他玩家加入</span><span id="mySeat" class="muted"></span></div><div id="lastAction" class="last-action">创建或加入房间，开始游戏吧。</div>
+      <button id="playBtn" class="play-button" disabled>翻一张牌</button><div id="result" class="result hidden"></div>
+      <div class="bottom-actions"><button id="startBtn" class="primary" disabled>开始游戏</button><button id="restartBtn" class="hidden">再玩一局</button><button id="leaveBtn" class="subtle">离开房间</button></div>
+    </section>
+    <p class="rules-note">规则：轮流翻牌；新牌与桌面上最近一张相同点数的牌匹配时，收走该牌及其后所有牌。A、J、Q、K均按普通牌面匹配。手牌出完自动跳过，直到所有玩家手牌出完。</p>
+  </section>
+  <footer>轻量版 · 2—4人好友房间</footer>
+</main><div id="toast" class="toast"></div>
+<script src="/socket.io/socket.io.js"></script><script src="/client.js"></script>
+</body></html>
