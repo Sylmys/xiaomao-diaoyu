@@ -1,0 +1,10 @@
+{
+  "name": "xiaomao-diaoyu",
+  "version": "1.0.0",
+  "private": true,
+  "description": "轻量级好友联机小猫钓鱼扑克游戏",
+  "main": "server.js",
+  "scripts": { "start": "node server.js", "dev": "node --watch server.js" },
+  "dependencies": { "express": "^4.21.2", "socket.io": "^4.8.1" },
+  "engines": { "node": ">=18" }
+}
